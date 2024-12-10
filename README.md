@@ -76,7 +76,9 @@ Change to the repository directory, `cd repo`
 3. Create a new branch:
 `git checkout -b feature-branch` ( this is a shortcut . the branch name is feature-branch here)
 
-  ** Check you are on the Branch using git branch **
+  Check you are on the new Branch using `git branch`.
+  
+  **General rule of thumb:** Always do a `git status` or `git branch` to check you're on the correct branch and not in main branch
 
 <br />
 
