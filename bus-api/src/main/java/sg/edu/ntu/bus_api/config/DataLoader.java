@@ -1,9 +1,12 @@
-package sg.edu.ntu.bus_api.service;
+package sg.edu.ntu.bus_api.config;
 
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
+import sg.edu.ntu.bus_api.service.BusRouteApiService;
+import sg.edu.ntu.bus_api.service.BusServiceApiService;
+import sg.edu.ntu.bus_api.service.BusStopApiService;
 
 /* Load all the Datamall data into the database once. */
 
@@ -23,7 +26,11 @@ public class DataLoader {
     this.busServiceApiService = busServiceApiService;
     this.busRouteApiService = busRouteApiService;
   }
+
   // post construct to load the data
+  // IMPORTANT: Do this only one time.
+  // After that comment out the lines, as we do not want to 
+  // load the database again.
   @PostConstruct
   public void load(){
     busStopApiService.getBusStops();
