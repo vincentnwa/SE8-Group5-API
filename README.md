@@ -69,7 +69,7 @@ Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
 
 ### Step-by-step walkthrough:
 1. Fork your own copy of the group Repo
-2. Clone the repository git clone https://github.com/username/repo.git
+2. Clone the forked repository `git clone https://github.com/username/repo.git`
 
 Change to the repository directory, `cd repo`
 
@@ -78,7 +78,7 @@ Change to the repository directory, `cd repo`
 3. Create a new branch:
 `git checkout -b feature-branch` ( this is a shortcut . the branch name is feature-branch here)
 
-** check you are on the Branch using git branch
+  ** check you are on the Branch using git branch
 
 <br />
 
@@ -92,21 +92,19 @@ Change to the repository directory, `cd repo`
 eg. `git push --set-upstream origin features/add_MapMain` 
 (above is a chained git command of `git push` and `git --set-upstream`, meaning git push is also done in this line of code)
 
-- Subsequently, any further git push you want to make, simply use `git push`
-  - Optional:  `git push origin your-branch-name` also works.  (see below for explanation of difference)
+  - Subsequently, any further git push you want to make, simply use `git push`
+    - Optional:  `git push origin your-branch-name` also works.  (see below for explanation of difference)
 
 What is upstream branch?
 An upstream branch is a remote branch that your local branch tracks. upstream command pushes a local branch to the origin remote repo (eg. your forked repo), linking them, and sets local branch to track remote branch (eg. your forked repo).
 
-<br />
-
 6. Create a pull request on GitHub
-- Go to your forked repository on GitHub 
-- Click on "Compare & pull request"
-- Select "main" as the base branch and "feature-branch" as the compare branch
-- Click on "Create pull request"
-- Team reviews, comments, and approves
-- Once approved, you merge the pull request 
+  - Go to your forked repository on GitHub 
+  - Click on "Compare & pull request"
+  - Select "main" as the base branch and "feature-branch" as the compare branch
+  - Click on "Create pull request"
+  - Team reviews, comments, and approves
+  - Once approved, you merge the pull request 
 
 <br />
 
