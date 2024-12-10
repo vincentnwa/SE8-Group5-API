@@ -32,7 +32,7 @@
 	</properties>
 	<dependencies>
 		<!-- Start Jackson Object Mapper-->
-		<dependency>
+		<!-- <dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-core</artifactId>
 		</dependency>
@@ -43,7 +43,7 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
-		</dependency>
+		</dependency> -->
 		<!-- End Jackson Object Mapper-->
 
 		<dependency>
