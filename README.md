@@ -68,6 +68,7 @@ Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
 <br />
 <br />
 
+### Step-by-step
 1. Fork your own copy of the group Repo
 2. Clone the repository git clone https://github.com/username/repo.git
 
