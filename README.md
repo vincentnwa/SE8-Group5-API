@@ -62,8 +62,7 @@ Getting from Datamall, the route is prefixed by **/datamall**.
 ## Guide for Git Team collaboration
 
 Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
-&nbsp; <!-- adds a line spacing -->
-&nbsp;
+<br />
 skip to branching part
 
 1. Fork your own copy of the group Repo
