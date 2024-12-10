@@ -63,7 +63,10 @@ Getting from Datamall, the route is prefixed by **/datamall**.
 
 Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
 <br />
-skip to branching part
+- skip to branching part
+
+
+
 
 1. Fork your own copy of the group Repo
 2. Clone the repository git clone https://github.com/username/repo.git
