@@ -65,7 +65,7 @@ Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
 - skip to branching part
 
 <br />
-### Step-by-step walkthrough:
+### Step-by-step walkthrough
 1. Fork your own copy of the group Repo
 2. Clone the forked repository `git clone https://github.com/username/repo.git`
 
@@ -75,7 +75,6 @@ Change to the repository directory, `cd repo`
 `git checkout -b feature-branch` (this is a shortcut. the branch name is feature-branch here)
 
   Check you are on the new Branch using `git branch`.
-  General rule of thumb = Always do a `git status` or `git branch` to check you're on the correct branch and not in main branch
 
 <br />
 
