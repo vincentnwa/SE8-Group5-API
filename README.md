@@ -64,25 +64,26 @@ Getting from Datamall, the route is prefixed by **/datamall**.
 Youtube guide: https://www.youtube.com/watch?v=S7XpTAnSDL4
 - skip to branching part
 
-<br />
+
 ### Step-by-step walkthrough
+
 1. Fork your own copy of the group Repo
 2. Clone the forked repository `git clone https://github.com/username/repo.git`
 
 Change to the repository directory, `cd repo`
+
 
 3. Create a new branch:
 `git checkout -b feature-branch` (this is a shortcut. the branch name is feature-branch here)
 
   Check you are on the new Branch using `git branch`.
 
-<br />
+  **General rule of thumb:** Always use `git status` or `git branch` to check you're on the new branch
 
 4. Do your staging and commit
   - `git add -A` (to stage all new files, deleted files, and modified files. Better than git add . as that does not stage deleted files)
   - `git commit -m "your message"`
 
-<br />
 
 5. Publish local branch to remote and set up tracking relationship (have to do this the first time you git push on new branch):
 eg. `git push --set-upstream origin features/add_MapMain` 
@@ -91,10 +92,10 @@ eg. `git push --set-upstream origin features/add_MapMain`
   - Subsequently, any further git push you want to make, simply use `git push`
     - Optional:  `git push origin your-branch-name` also works.  (see below for explanation of difference)
 
+
 What is upstream branch?
 An upstream branch is a remote branch that your local branch tracks. upstream command pushes a local branch to the origin remote repo (eg. your forked repo), linking them, and sets local branch to track remote branch (eg. your forked repo).
 
-<br />
 
 6. Create a pull request on GitHub
   - Go to your forked repository on GitHub 
@@ -104,7 +105,7 @@ An upstream branch is a remote branch that your local branch tracks. upstream co
   - Team reviews, comments, and approves
   - Once approved, you merge the pull request 
 
-<br />
+
 ### What is difference between" git push and  git push origin your-branch-name"?
 
 `git push` :
