@@ -4,6 +4,6 @@ public class ApiKey {
   // just to store the API Key for now
     // my api key
     //@Value("${apiKey}")
-    public static final String myApiKey = "api key";
+    public static final String myApiKey = "TomuLTlOSjOWXSaaM6dxuw==";
 
 }

@@ -11,20 +11,20 @@ Note that there are two types of API calls here.
 
 
 ## Load data
-  
-**IMPORTANT**: Do this only one time. After that comment out the lines, as we do not want to load the database again.
+
+The Postgres database can persist now. To load the data just one time use the following GET /datamall endpoints.
+
+To load the data, use the Datamall endpoints. Call these endpoints one by one.
+
+The **bus routes** data is very large. Be patient and wait. It can take more than 15 minutes depending on network traffic.
 
 ```
-  // post construct to load the data
-  // IMPORTANT: Do this only one time.
-  // After that comment out the lines, as we do not want to 
-  // load the database again.
-  @PostConstruct
-  public void load(){
-    busStopApiService.getBusStops();
-    busServiceApiService.getBusServices();
-    busRouteApiService.getBusRoutes();
-  }
+- Bus services
+  - /datamall/services
+- Bus stops
+  - /datamall/stops
+- Bus routes
+  - /datamall/routes
 
 ```
 
