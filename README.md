@@ -34,16 +34,21 @@ All Controller files to be in this folder
 
 ### Supply to front-end
 
-Supply to front-end, the route is prefixed by **/app**.
+Supply to front-end, the route is prefixed by **/app**. This will return the first id of each table. This serves as a test to make sure the endpoint is working. Returning the whole data is too large.
 
 - Bus services
   - /app/services
+- To find one bus service
+  - /app/services/{serviceNo}
 - Bus stops
   - /app/stops
+- To find one bus stop
+  - /app/stops/{busStopCode}
 - Bus routes
   - /app/routes
-- Bus arrival
+- Bus arrival - Notes that this will return the Datamall string as it is.
   - /app/arrival
+
 
 ## From datamall
 
