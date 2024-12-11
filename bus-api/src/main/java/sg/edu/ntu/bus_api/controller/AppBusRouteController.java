@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import sg.edu.ntu.bus_api.entity.BusRoute;
+import sg.edu.ntu.bus_api.entity.BusStop;
 import sg.edu.ntu.bus_api.service.BusRouteApiService;
 
 @RestController
@@ -21,13 +22,24 @@ public class AppBusRouteController {
     this.busRouteApiService = busServiceApiService;
   }
 
-  @GetMapping("/app/routes")
-  public ResponseEntity<?> findAll(){
+  // get the bus stop code
+  @GetMapping("/app/routes")  
+  public ResponseEntity<?> findFirstOne(){
     Map<String, Object> response = new LinkedHashMap<>();
-    List<BusRoute> busRouteList = busRouteApiService.findAll();
-    response.put("status", "Successful");
-    response.put("data", busRouteList);
-    return new ResponseEntity<>(response, HttpStatus.OK);
+    BusRoute busRoute = busRouteApiService.findFirstOne();
+    if(busRoute!=null){
+      // prepare the response
+      response.put("status", "Successful");
+      response.put("data", busRoute);
+      return new ResponseEntity<>(response, HttpStatus.OK);
+    }
+    // no result is found
+    else {
+      response.clear();
+      response.put("status", "Failed");
+      response.put("message", "No data are found.");
+      return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
+    }    
   }
 
 }
