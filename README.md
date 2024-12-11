@@ -57,9 +57,11 @@ Supply to front-end, the route is prefixed by **/app**. This will return the fir
 
 ## From datamall
 
-This is for initial testing to get the data one by one. Now, the data can be loaded once post construct in **service/DataLoader**.
+This is for initial testing to get the data one by one. 
 
 Getting from Datamall, the route is prefixed by **/datamall**.
+
+Not using DataLoader because the data is too large.
 
 - Bus services
   - /datamall/services
