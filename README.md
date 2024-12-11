@@ -40,12 +40,17 @@ Supply to front-end, the route is prefixed by **/app**. This will return the fir
   - /app/services
 - To find one bus service
   - /app/services/{serviceNo}
+  - localhost:8080/app/services/58
 - Bus stops
   - /app/stops
 - To find one bus stop
   - /app/stops/{busStopCode}
+  - localhost:8080/app/stops/53009
 - Bus routes
   - /app/routes
+- To find bus route by service number and direction
+  - /app/routes/service/{serviceNo}/direction/{direction}
+  - localhost:8080/app/routes/service/80/direction/1
 - Bus arrival - Notes that this will return the Datamall string as it is.
   - /app/arrival
 

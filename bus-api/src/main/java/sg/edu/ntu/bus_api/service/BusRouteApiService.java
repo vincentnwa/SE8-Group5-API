@@ -59,6 +59,12 @@ public class BusRouteApiService {
     }
   }
 
+  // find by service no and direction
+  public List<BusRoute> findByServiceDirection(String serviceNo, String direction) {
+    return 
+      busRouteRepo.findByServiceNoAndDirectionIgnoreCase
+        (serviceNo, direction);
+  }
 
   // counter to keep track of the skip
   // if array in the value is less than 500,
