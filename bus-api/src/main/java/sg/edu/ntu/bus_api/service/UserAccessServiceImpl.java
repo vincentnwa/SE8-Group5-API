@@ -11,11 +11,11 @@ import java.util.List;
 
 @Service
 
-public class UserAccessServiceImp implements UserAccessService {
+public class UserAccessServiceImpl implements UserAccessService {
 
     private final UserAccessRepository userAccessRepository;
 
-    public UserAccessServiceImp(UserAccessRepository userAccessRepository) {
+    public UserAccessServiceImpl(UserAccessRepository userAccessRepository) {
         this.userAccessRepository = userAccessRepository;
     }
 
