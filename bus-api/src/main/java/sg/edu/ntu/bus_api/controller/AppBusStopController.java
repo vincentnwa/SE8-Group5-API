@@ -1,6 +1,5 @@
 package sg.edu.ntu.bus_api.controller;
 
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.List;
@@ -57,14 +56,4 @@ public class AppBusStopController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
-  // get all bus stops
-  @GetMapping("/app/stops-all")
-  public ResponseEntity<?> findAll(){
-    Map<String, Object> response = new LinkedHashMap<>();
-    ArrayList<BusStop> busStopList = busStopApiService.findAll();
-    // prepare the response
-    response.put("status", "Successful");
-    response.put("data", busStopList);
-    return new ResponseEntity<>(response, HttpStatus.OK);
-  }
 }

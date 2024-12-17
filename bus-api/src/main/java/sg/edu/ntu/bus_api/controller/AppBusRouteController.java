@@ -69,9 +69,5 @@ public class AppBusRouteController {
     }    
   }
 
-  @GetMapping("/app/routes-all")
-  public String getBusRoutes(@RequestParam String param) {
-      return new String();
-  }
   
 }

@@ -147,7 +147,4 @@ public class BusServiceApiService {
     }
   }
    
-  public List<BusService> findAll(){
-    return busServiceRepo.findAll();
-  }
 }
