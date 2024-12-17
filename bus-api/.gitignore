@@ -31,5 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-log/
+logs/
 src/main/java/sg/edu/ntu/bus_api/service/ApiKey.java
