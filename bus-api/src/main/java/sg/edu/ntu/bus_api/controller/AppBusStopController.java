@@ -55,5 +55,4 @@ public class AppBusStopController {
     response.put("data", busStopList);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
-
 }
