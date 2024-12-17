@@ -47,7 +47,7 @@ public class BusStopApiService {
     return results;
   }
 
-
+  
   // this will actually return one sample. It will not
   // return the who list because it is too large.
   // It is called findAll() just to show the find
