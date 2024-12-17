@@ -43,8 +43,12 @@ public class BusRouteApiService {
     getBusRoutes();
   }
 
+  public List<BusRoute> findAll(){
+    return busRouteRepo.findAll();
+  }
+
   // find only the first id.
-  // the actual data is too larget.
+  // the actual data is too large.
   public BusRoute findFirstOne(){
     // find the first id
     Optional<BusRoute> optionalBusRoute = busRouteRepo.findById(1L);

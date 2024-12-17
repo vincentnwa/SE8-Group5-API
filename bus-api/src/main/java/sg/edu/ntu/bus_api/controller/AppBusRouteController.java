@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import sg.edu.ntu.bus_api.entity.BusRoute;
 import sg.edu.ntu.bus_api.entity.BusStop;
 import sg.edu.ntu.bus_api.service.BusRouteApiService;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 public class AppBusRouteController {
@@ -68,4 +69,9 @@ public class AppBusRouteController {
     }    
   }
 
+  @GetMapping("/app/routes-all")
+  public String getBusRoutes(@RequestParam String param) {
+      return new String();
+  }
+  
 }

@@ -53,4 +53,13 @@ public class AppBusServiceController {
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
 
+  // get all bus services
+  @GetMapping("/app/services-all")
+  public ResponseEntity<?> findAll(){
+    Map<String, Object> response = new LinkedHashMap<>();
+    List<BusService> busServiceList = busServiceApiService.findAll();
+    response.put("status", "Successful");
+    response.put("data", busServiceList);
+    return new ResponseEntity<>(response, HttpStatus.OK);
+  }
 }

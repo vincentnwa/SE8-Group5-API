@@ -146,5 +146,8 @@ public class BusServiceApiService {
       logger.error(message, exp);
     }
   }
-
+   
+  public List<BusService> findAll(){
+    return busServiceRepo.findAll();
+  }
 }
