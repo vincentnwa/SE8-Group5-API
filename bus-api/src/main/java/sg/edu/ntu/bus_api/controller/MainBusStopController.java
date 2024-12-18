@@ -1,7 +1,7 @@
 package sg.edu.ntu.bus_api.controller;
 
 import sg.edu.ntu.bus_api.entity.BusStop;
-import sg.edu.ntu.bus_api.service.MainBusStopService;
+import sg.edu.ntu.bus_api.service.MainBusStopApiService;
 
 import java.util.List;
 
@@ -21,44 +21,44 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/app1")
 public class MainBusStopController {
 
-    private MainBusStopService mainBusStopService;
+    private MainBusStopApiService mainBusStopApiService;
 
     // Constructor injection
-    public MainBusStopController (MainBusStopService mainBusStopService){
-        this.mainBusStopService = mainBusStopService;
+    public MainBusStopController(MainBusStopApiService mainBusStopApiService){
+        this.mainBusStopApiService = mainBusStopApiService;
     }
     
     // Read - get all Bus Stop
     @GetMapping("/bus-stops-all")
     public ResponseEntity<List<BusStop>> getAllBusStops() {
-        List<BusStop> allBusStops = mainBusStopService.getAllBusStops();
+        List<BusStop> allBusStops = mainBusStopApiService.getAllBusStops();
         return new ResponseEntity<>(allBusStops, HttpStatus.OK);
     }
     
     // Read - get one Bus Stop
     @GetMapping("/bus-stops/{id}")
     public ResponseEntity<BusStop> getBusStop(@PathVariable Long id) {
-        return new ResponseEntity<>(mainBusStopService.getBusStop(id), HttpStatus.OK);
+        return new ResponseEntity<>(mainBusStopApiService.getBusStop(id), HttpStatus.OK);
     }
 
     // Create a bus stop. CAUTION: this method creates bus stop in the local database and it is persists
     @PostMapping("/bus-stops")
     public ResponseEntity<BusStop> createBusStop(@RequestBody BusStop busStop){
-        BusStop newBusStop = mainBusStopService.createBusStop(busStop);
+        BusStop newBusStop = mainBusStopApiService.createBusStop(busStop);
         return new ResponseEntity<>(newBusStop, HttpStatus.CREATED); 
     }
 
     // Delete
     @DeleteMapping("/bus-stops/{id}")
     public ResponseEntity<HttpStatus> deleteBusStop(@PathVariable Long id) {
-        mainBusStopService.deleteBusStop(id);
+        mainBusStopApiService.deleteBusStop(id);
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     
     // Update
     @PutMapping("/bus-stops/{id}")
     public ResponseEntity<BusStop> updateBusStop(@PathVariable Long id, @RequestBody BusStop busStop) {
-        BusStop updatedBusStop = mainBusStopService.updateBusStop(id, busStop);
+        BusStop updatedBusStop = mainBusStopApiService.updateBusStop(id, busStop);
         return new ResponseEntity<>(updatedBusStop, HttpStatus.OK);
     }
 

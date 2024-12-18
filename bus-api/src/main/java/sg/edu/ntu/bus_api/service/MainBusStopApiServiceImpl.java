@@ -9,12 +9,12 @@ import sg.edu.ntu.bus_api.exception.BusStopNotFoundException;
 import sg.edu.ntu.bus_api.repository.BusStopRepository;
 
 @Service
-public class MainBusStopServiceImpl implements MainBusStopService {
+public class MainBusStopApiServiceImpl implements MainBusStopApiService {
     
     private BusStopRepository busStopRepository;
 
     // Constructor injection
-    public MainBusStopServiceImpl (BusStopRepository busStopRepository) {
+    public MainBusStopApiServiceImpl (BusStopRepository busStopRepository) {
         this.busStopRepository = busStopRepository;
     }
 

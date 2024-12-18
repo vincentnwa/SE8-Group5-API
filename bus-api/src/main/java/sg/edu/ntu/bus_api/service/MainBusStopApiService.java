@@ -4,7 +4,7 @@ import java.util.List;
 
 import sg.edu.ntu.bus_api.entity.BusStop;
 
-public interface MainBusStopService {
+public interface MainBusStopApiService {
     BusStop createBusStop(BusStop busStop);
     BusStop getBusStop(Long id);
     List<BusStop> getAllBusStops();
