@@ -27,7 +27,6 @@ public class UserAccess {
 
     @Column(nullable = false)
     private String username;
-    @NotBlank(message = "Username should not be blank.")
 
     @Column(nullable = false)
     private String password;
