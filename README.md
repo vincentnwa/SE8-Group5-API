@@ -1,5 +1,37 @@
 # SE8-Group5-API
 
+## Keeping Datamall API secret
+
+### Step 1:
+
+In application.properties, put this in:
+  `spring.profiles.active=dev`
+
+Comment out the previous line by Jimmy :
+
+`#app.api.key=${MY_API_KEY}`
+
+### Step 2:
+
+Create a an application-dev.properties file in the same folder as the application.properties.
+
+In the file, put this line:
+
+`app.api.key=<YOUR API KEY>`
+
+### No action required
+
+There are `main - resources - META-INF` and `.vscode` folder. Leave it as it is. No need to change anything.
+
+### Git ignore
+
+Put this line in the `.gitignore`, so that the API key will not be uploaded to github.
+
+`/src/main/resources/application-dev.properties`
+
+Do a `git status`. You should **not** see any git tracking of the `application-dev.properties`.
+
+
 ## Endpoints
 
 Endpoints in **controllerNote.md**.

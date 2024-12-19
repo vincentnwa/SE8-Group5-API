@@ -32,4 +32,6 @@ build/
 ### VS Code ###
 .vscode/
 logs/
-src/main/java/sg/edu/ntu/bus_api/service/ApiKey.java
+
+### Ignore application-dev ###
+/src/main/resources/application-dev.properties
