@@ -19,12 +19,20 @@ import sg.edu.ntu.bus_api.service.MainBusServiceApiService;
 @RestController
 @RequestMapping("/app1")
 public class MainBusServiceController {
-    
+
     private MainBusServiceApiService mainBusServiceApiService;
 
     // Constructor injection
     public MainBusServiceController(MainBusServiceApiService mainBusServiceApiService) {
         this.mainBusServiceApiService = mainBusServiceApiService;
+    }
+
+    // Create a bus service. 
+    // CAUTION: this method creates bus service in the local database and it is persists
+    @PostMapping("/bus-services")
+    public ResponseEntity<BusService> createBusService(@RequestBody BusService busService) {
+        BusService newBusService = mainBusServiceApiService.createBusService(busService);
+        return new ResponseEntity<>(newBusService, HttpStatus.CREATED);
     }
 
     // Read - get all Bus Services
@@ -36,28 +44,21 @@ public class MainBusServiceController {
 
     // Read - get one Bus Service
     @GetMapping("/bus-services/{id}")
-    public ResponseEntity<BusService> getBusService(@PathVariable Long id){
+    public ResponseEntity<BusService> getBusService(@PathVariable Long id) {
         return new ResponseEntity<>(mainBusServiceApiService.getBusService(id), HttpStatus.OK);
     }
 
-    // Create a bus service. CAUTION: this method creates bus service in the local database and it is persists
-    @PostMapping("/bus-services")
-    public ResponseEntity<BusService> createBusService(@RequestBody BusService busService){
-        BusService newBusService = mainBusServiceApiService.createBusService(busService);
-        return new ResponseEntity<>(newBusService, HttpStatus.CREATED);
+    // Update
+    @PutMapping("/bus-services/{id}")
+    public ResponseEntity<BusService> updateBusService(@PathVariable Long id, @RequestBody BusService busService) {
+        BusService updatedBusService = mainBusServiceApiService.updateBusService(id, busService);
+        return new ResponseEntity<>(updatedBusService, HttpStatus.OK);
     }
 
     // Delete
     @DeleteMapping("/bus-services/{id}")
     public ResponseEntity<HttpStatus> deleteBusService(@PathVariable Long id) {
         mainBusServiceApiService.deleteBusService(id);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-
-    //Update
-    @PutMapping("/bus-services/{id}")
-    public ResponseEntity<BusService> updateBusService(@PathVariable Long id, @RequestBody BusService busService) {
-        BusService updatedBusService = mainBusServiceApiService.updateBusService(id, busService);
-        return new ResponseEntity<>(updatedBusService, HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

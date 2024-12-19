@@ -10,35 +10,31 @@ import sg.edu.ntu.bus_api.repository.BusStopRepository;
 
 @Service
 public class MainBusStopApiServiceImpl implements MainBusStopApiService {
-    
+
     private BusStopRepository busStopRepository;
 
     // Constructor injection
-    public MainBusStopApiServiceImpl (BusStopRepository busStopRepository) {
+    public MainBusStopApiServiceImpl(BusStopRepository busStopRepository) {
         this.busStopRepository = busStopRepository;
     }
 
-    public BusStop createBusStop(BusStop busStop){
+    public BusStop createBusStop(BusStop busStop) {
         BusStop newBusStop = busStopRepository.save(busStop);
         return newBusStop;
     }
 
-    public BusStop getBusStop(Long id){
-        return busStopRepository.findById(id).orElseThrow(()-> new BusStopNotFoundException(id));
+    public BusStop getBusStop(Long id) {
+        return busStopRepository.findById(id).orElseThrow(() -> new BusStopNotFoundException(id));
     }
 
-    public List<BusStop> getAllBusStops(){
+    public List<BusStop> getAllBusStops() {
         List<BusStop> allBusStops = busStopRepository.findAll();
         return allBusStops;
     }
 
-    public void deleteBusStop(Long id) {
-        busStopRepository.deleteById(id);
-    }
-
-    public BusStop updateBusStop(Long id, BusStop busStop){
+    public BusStop updateBusStop(Long id, BusStop busStop) {
         // Retrieve the bus stop from database, throw exception if not found
-        BusStop busStopToUpdate = busStopRepository.findById(id).orElseThrow(()-> new BusStopNotFoundException(id));
+        BusStop busStopToUpdate = busStopRepository.findById(id).orElseThrow(() -> new BusStopNotFoundException(id));
 
         // Update the bus stop object that was retrieved
         busStopToUpdate.setBusStopCode(busStop.getBusStopCode());
@@ -49,5 +45,9 @@ public class MainBusStopApiServiceImpl implements MainBusStopApiService {
 
         // Save updated bus stop back to database
         return busStopRepository.save(busStopToUpdate);
+    }
+
+    public void deleteBusStop(Long id) {
+        busStopRepository.deleteById(id);
     }
 }

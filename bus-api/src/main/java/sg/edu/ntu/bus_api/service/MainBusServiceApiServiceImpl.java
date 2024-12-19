@@ -11,36 +11,32 @@ import sg.edu.ntu.bus_api.repository.BusServiceRepository;
 // @Service indicates that this class holds business logic, and is part of service layer
 @Service
 public class MainBusServiceApiServiceImpl implements MainBusServiceApiService {
-    
+
     private BusServiceRepository busServiceRepository;
 
-    //Constructor injection
-
-    public MainBusServiceApiServiceImpl (BusServiceRepository busServiceRepository) {
+    // Constructor injection
+    public MainBusServiceApiServiceImpl(BusServiceRepository busServiceRepository) {
         this.busServiceRepository = busServiceRepository;
     }
 
-    public BusService createBusService(BusService busService){
+    public BusService createBusService(BusService busService) {
         BusService newBusService = busServiceRepository.save(busService);
         return newBusService;
     }
 
-    public BusService getBusService(Long id){
-        return busServiceRepository.findById(id).orElseThrow(()-> new BusServiceNotFoundException(id));
+    public BusService getBusService(Long id) {
+        return busServiceRepository.findById(id).orElseThrow(() -> new BusServiceNotFoundException(id));
     }
 
-    public List<BusService> getAllBusServices(){
+    public List<BusService> getAllBusServices() {
         List<BusService> allBusServices = busServiceRepository.findAll();
         return allBusServices;
     }
 
-    public void deleteBusService(Long id) {
-        busServiceRepository.deleteById(id);
-    }
-
     public BusService updateBusService(Long id, BusService busService) {
         // Retrieve the bus service from database, throw exception if not found
-        BusService busServiceToUpdate = busServiceRepository.findById(id).orElseThrow(()-> new BusServiceNotFoundException(id));
+        BusService busServiceToUpdate = busServiceRepository.findById(id)
+                .orElseThrow(() -> new BusServiceNotFoundException(id));
 
         // Update the bus service object that was retrieved
         busServiceToUpdate.setServiceNo(busService.getServiceNo());
@@ -57,5 +53,9 @@ public class MainBusServiceApiServiceImpl implements MainBusServiceApiService {
 
         // Save updated bus service back to database
         return busServiceRepository.save(busServiceToUpdate);
+    }
+
+    public void deleteBusService(Long id) {
+        busServiceRepository.deleteById(id);
     }
 }
