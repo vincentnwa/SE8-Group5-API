@@ -5,8 +5,6 @@ import java.time.LocalDateTime;
 import org.springframework.stereotype.Component;
 
 import jakarta.annotation.PostConstruct;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.PersistenceContext;
 import sg.edu.ntu.bus_api.entity.UserAccess;
 import sg.edu.ntu.bus_api.repository.UserAccessRepository;
 
@@ -26,7 +24,8 @@ public class DataloaderUserAccess {
 
                 // Delete the exisiting data
                 userAccessRepository.deleteAll();
-                // entityManager.createNativeQuery("DBCC CHECKIDENT ('user_access', RESEED, 0)").executeUpdate();
+                // entityManager.createNativeQuery("DBCC CHECKIDENT ('user_access', RESEED,
+                // 0)").executeUpdate();
 
                 userAccessRepository.save(UserAccess.builder().username("TestUser1").password("TestUser123")
                                 .accessLevel("Admin").created_At(LocalDateTime.now()).updated_At(null).build());
