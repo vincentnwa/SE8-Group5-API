@@ -28,3 +28,7 @@ Getting from Datamall, the route is prefixed by **/datamall**.
 - Bus routes
   - /datamall/routes
 
+# Supply the User Access Endpoint
+- /api/user-access
+
+

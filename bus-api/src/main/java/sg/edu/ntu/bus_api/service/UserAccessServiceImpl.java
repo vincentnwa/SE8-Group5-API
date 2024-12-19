@@ -1,6 +1,6 @@
 package sg.edu.ntu.bus_api.service;
 
-import lombok.RequiredArgsConstructor;
+// import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sg.edu.ntu.bus_api.entity.UserAccess;
 import sg.edu.ntu.bus_api.exception.UserAccessNotFoundException;
@@ -13,39 +13,35 @@ import java.util.List;
 
 public class UserAccessServiceImpl implements UserAccessService {
 
-    private final UserAccessRepository userAccessRepository;
+    private UserAccessRepository userAccessRepository;
 
     public UserAccessServiceImpl(UserAccessRepository userAccessRepository) {
         this.userAccessRepository = userAccessRepository;
     }
 
-    @Override
     public UserAccess createUserAccess(UserAccess userAccess) {
-        userAccess.setCreatedAt(LocalDateTime.now());
+        userAccess.setCreated_At(LocalDateTime.now());
         return userAccessRepository.save(userAccess);
     }
 
-    @Override
     public UserAccess getUserAccessById(Long id) {
         return userAccessRepository.findById(id)
                 .orElseThrow(() -> new UserAccessNotFoundException(id));
     }
 
-    @Override
     public List<UserAccess> getAllUserAccess() {
         return userAccessRepository.findAll();
     }
 
-    @Override
     public UserAccess updateUserAccess(Long id, UserAccess userAccess) {
         UserAccess existingUserAccess = getUserAccessById(id);
         existingUserAccess.setUsername(userAccess.getUsername());
+        existingUserAccess.setPassword(userAccess.getPassword());
         existingUserAccess.setAccessLevel(userAccess.getAccessLevel());
-        existingUserAccess.setUpdatedAt(LocalDateTime.now());
+        existingUserAccess.setUpdated_At(LocalDateTime.now());
         return userAccessRepository.save(existingUserAccess);
     }
 
-    @Override
     public void deleteUserAccess(Long id) {
         UserAccess existingUserAccess = getUserAccessById(id);
         userAccessRepository.delete(existingUserAccess);

@@ -132,3 +132,8 @@ GET localhost:8080/app/services
 
 
 ```
+
+# Supply unit test for SerAccessControllerTest.java
+- I run this command to test my own code block
+  mvn -Dtest=UserAccessControllerTest#testCreateUserAccess test
+
