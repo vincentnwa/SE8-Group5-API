@@ -30,9 +30,13 @@ public class BusServiceApiService {
   // autowire the bean repository
   private BusServiceRepository busServiceRepo;
 
+  // Local object variable for ApiKey
+  private final ApiKey apiKey;
+
   // constructor
-  public BusServiceApiService(BusServiceRepository busServiceRepo) {
+  public BusServiceApiService(BusServiceRepository busServiceRepo, ApiKey apiKey) {
     this.busServiceRepo = busServiceRepo;
+    this.apiKey = apiKey;
   }
 
   // public main to run the service
@@ -68,6 +72,9 @@ public class BusServiceApiService {
     }
   }
 
+  public List<BusService> findAll(){
+    return busServiceRepo.findAll();
+  }
 
   // web client
   public HttpStatusCode getBusServices() {
@@ -85,7 +92,7 @@ public class BusServiceApiService {
     // must be .get, .uri., .header.
     ResponseEntity<String> result = restClient.get()
         .uri(BUS_SERVICES_URL + skip)
-        .header("accountKey", ApiKey.myApiKey)
+        .header("accountKey", apiKey.getApiKey())
         .retrieve()
         .toEntity(String.class);
     // print the result for debugging

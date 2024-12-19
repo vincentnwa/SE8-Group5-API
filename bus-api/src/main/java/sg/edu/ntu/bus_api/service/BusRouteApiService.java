@@ -32,9 +32,13 @@ public class BusRouteApiService {
   // autowire the bean repository
   private BusRouteRepository busRouteRepo;
 
+  // Local object variable for ApiKey
+  private final ApiKey apiKey;
+
   // constructor
-  public BusRouteApiService(BusRouteRepository busRouteRepo) {
+  public BusRouteApiService(BusRouteRepository busRouteRepo, ApiKey apiKey) {
     this.busRouteRepo = busRouteRepo;
+    this.apiKey = apiKey;
   }
 
   // public main to run the service
@@ -88,7 +92,7 @@ public class BusRouteApiService {
       // must be .get, .uri., .header.
       ResponseEntity<String> result = restClient.get()
           .uri(BUS_ROUTES_URL + skip)
-          .header("accountKey", ApiKey.myApiKey)
+          .header("accountKey", apiKey.getApiKey())
           .retrieve()
           .toEntity(String.class);
       // print the result for debugging

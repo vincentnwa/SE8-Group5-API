@@ -55,4 +55,14 @@ public class AppBusStopController {
     response.put("data", busStopList);
     return new ResponseEntity<>(response, HttpStatus.OK);
   }
+
+  @GetMapping("/app/stops-all")
+  public ResponseEntity<?> findAll(){
+    Map<String, Object> response = new LinkedHashMap<>();
+    List<BusStop> busStopList = busStopApiService.findAll();
+    // prepare the response
+    response.put("status", "Successful");
+    response.put("data", busStopList);
+    return new ResponseEntity<>(response, HttpStatus.OK);
+  }
 }

@@ -3,6 +3,8 @@ package sg.edu.ntu.bus_api.exception;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.ObjectError;
@@ -15,6 +17,8 @@ public class GlobalExceptionHandler {
     
     // Add exception handlers here
     // Look at @ExceptionHandler line to see name of handler
+
+    public static final Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
     @ExceptionHandler(BusStopNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleBusStopNotFoundException (BusStopNotFoundException e) {
@@ -56,6 +60,8 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse("Something went wrong. This is from General Exception handler.", LocalDateTime.now());
 
         //you can call logger here
+        logger.error("🔴 This is an error message");
+
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

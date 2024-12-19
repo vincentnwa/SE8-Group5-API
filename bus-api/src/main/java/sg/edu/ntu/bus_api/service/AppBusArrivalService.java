@@ -4,6 +4,7 @@ import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,14 @@ public class AppBusArrivalService {
   // Parameters: BusStopCode, ServiceNo
   private final String BUS_ARRIVAL_URL = 
     "https://datamall2.mytransport.sg/ltaodataservice/v3/BusArrival";
+  
+  // Local object variable for ApiKey
+  private final ApiKey apiKey;
+
+  // Constructor injection
+  public AppBusArrivalService(ApiKey apiKey) {
+      this.apiKey = apiKey;
+  }
 
   
   // GET bus arrival time
@@ -48,7 +57,7 @@ public class AppBusArrivalService {
     ResponseEntity<String> result = 
     restClient.get()
         .uri(requestUrl.toString())
-        .header("accountKey", ApiKey.myApiKey)
+        .header("accountKey", apiKey.getApiKey())
         .retrieve()
         .toEntity(String.class);
     // print the result for debugging

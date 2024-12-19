@@ -30,9 +30,13 @@ public class BusStopApiService {
   // autowire the bean repository
   private BusStopRepository busStopRepo;
 
+  // Local object variable for ApiKey
+  private final ApiKey apiKey;
+
   // constructor
-  public BusStopApiService(BusStopRepository busStopRepo) {
+  public BusStopApiService(BusStopRepository busStopRepo, ApiKey apiKey) {
     this.busStopRepo = busStopRepo;
+    this.apiKey = apiKey;
   }
 
   // public main to run the service
@@ -64,7 +68,10 @@ public class BusStopApiService {
       return null;
     }
   }
-
+  
+  public List<BusStop> findAll(){
+    return busStopRepo.findAll();
+  }
 
   // counter to keep track of the skip
   // if array in the value is less than 500,
@@ -88,7 +95,7 @@ public class BusStopApiService {
       // must be .get, .uri., .header.
       ResponseEntity<String> result = restClient.get()
           .uri(BUS_STOPS_URL + skip)
-          .header("accountKey", ApiKey.myApiKey)
+          .header("accountKey", apiKey.getApiKey())
           .retrieve()
           .toEntity(String.class);
       // print the result for debugging
