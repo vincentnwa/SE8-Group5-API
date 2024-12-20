@@ -23,18 +23,21 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusStopNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleBusStopNotFoundException (BusStopNotFoundException e) {
         ErrorResponse errorResponse = new ErrorResponse(e.getMessage(), LocalDateTime.now());
+        logger.error("🔴🔴🔴 🚏 Bus Stop not found! Please check the id again.");
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(BusServiceNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleBusServiceNotFoundException (BusServiceNotFoundException e) {
         ErrorResponse errorResponse = new ErrorResponse(e.getMessage(), LocalDateTime.now());
+        logger.error("🔴🔴🔴 🚌 Bus Service not found! Please check the id again.");
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
     @ExceptionHandler(BusRouteNotFoundException.class)
     public ResponseEntity<ErrorResponse> handleBusRouteNotFoundException (BusRouteNotFoundException e) {
         ErrorResponse errorResponse = new ErrorResponse(e.getMessage(), LocalDateTime.now());
+        logger.error("🔴🔴🔴 🛣️  Bus Route not found! Please check the id again.");
         return new ResponseEntity<>(errorResponse, HttpStatus.NOT_FOUND);
     }
 
@@ -63,7 +66,7 @@ public class GlobalExceptionHandler {
         ErrorResponse errorResponse = new ErrorResponse("Something went wrong. This is from General Exception handler.", LocalDateTime.now());
 
         //you can call logger here
-        logger.error("🔴 This is a General error message");
+        logger.error("🔴🔴🥵 This is a General error message");
 
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }

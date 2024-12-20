@@ -20,7 +20,7 @@ public class MainBusStopApiServiceImpl implements MainBusStopApiService {
     }
 
     public BusStop createBusStop(BusStop busStop) {
-        // Create a bus stop object to store the existing bus stop if it exists, elese this will be null
+        // Create a bus stop object to store the existing bus stop if it exists, else this will be null
         BusStop existingBusStop = busStopRepository.findByBusStopCode(busStop.getBusStopCode());
         // Check if bus stop code already exists
         if (busStopRepository.existsByBusStopCode(busStop.getBusStopCode())) {
