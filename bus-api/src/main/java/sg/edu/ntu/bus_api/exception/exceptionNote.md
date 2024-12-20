@@ -3,7 +3,7 @@ All Exception handlers to be in this folder
 Includes Global Exception handler
 
 # UserAccessNotFoundException does not supply global exception
-- It is because I still not understanding the global exception code logic. Not mmanage the code it.
+- It is because I still not understanding the global exception code logic. Not manage the code it.
 
 # Available Exception handlers
 
