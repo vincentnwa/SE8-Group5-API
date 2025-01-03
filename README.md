@@ -1,6 +1,7 @@
 # SE8-Group5-API
 
-This is a backup copy of main branch version 0.3a
+Version 4.0.0
+- Removed bus stop @DecimalMax @DecimalMin for Latitude and Longitude causes error during the pull of BusStops from LTA Datamall because there's bus stops in Malaysia but my Latitude Longitude min and max range settings to only Singapore land block those bus stops from getting pulled from LTA Datamall
 
 ## Keeping Datamall API secret
 
