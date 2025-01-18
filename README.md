@@ -1,5 +1,8 @@
 # SE8-Group5-API
 
+Version 5.1.0
+- Added .circleci folder and config.yml
+
 Version 5.0.0
 - Renamed app.api.key to APP_API_KEY because circleCi do not allow ".", only "_" for env variable name
 - Renamed UserAccessControllerTest.java to a .txt file
