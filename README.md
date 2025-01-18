@@ -12,7 +12,7 @@ In application.properties, put this in:
 
 Comment out the previous line by Jimmy :
 
-`#app.api.key=${MY_API_KEY}`
+`#APP_API_KEY=${MY_API_KEY}`
 
 ### Step 2:
 
@@ -20,7 +20,7 @@ Create a an application-dev.properties file in the same folder as the applicatio
 
 In the file, put this line:
 
-`app.api.key=<YOUR API KEY>`
+`APP_API_KEY=<YOUR API KEY>`
 
 ### No action required
 
